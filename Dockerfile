@@ -16,3 +16,5 @@ LABEL org.opencontainers.image.authors="William Jackson <wjackson@informatica.co
       org.opencontainers.image.source="https://github.com/informatica-na-presales-ops/power-control-sde"
 
 COPY --chown=python:python power-control-sde.py /home/python/power-control-sde/power-control-sde.py
+
+ENTRYPOINT ["/home/python/venv/bin/python", "/home/python/power-control-sde/power-control-sde.py"]
