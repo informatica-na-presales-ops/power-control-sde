@@ -1,0 +1,24 @@
+services:
+  pip-compile:
+    entrypoint:
+      - /bin/sh
+      - -c
+      - pip install pip-tools && pip-compile
+    image: ghcr.io/informatica-na-presales-ops/power-control-sde
+    init: true
+    volumes:
+      - ./:/home/python/power-control-sde
+    working_dir: /home/python/power-control-sde
+
+  power-control-sde:
+    image: ghcr.io/informatica-na-presales-ops/power-control-sde
+    init: true
+
+  shell:
+    entrypoint:
+      - /bin/sh
+    image: ghcr.io/informatica-na-presales-ops/power-control-sde
+    init: true
+    volumes:
+      - ./:/home/python/power-control-sde
+    working_dir: /home/python/power-control-sde
